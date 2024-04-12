@@ -1,0 +1,2 @@
+test2;pyruvate_kinase;2.7.1.40;phosphoenolpyruvate;Homo sapiens
+test3;pyruvate_kinase;2.7.1.40;phosphoenolpyruvate;Bos taurus

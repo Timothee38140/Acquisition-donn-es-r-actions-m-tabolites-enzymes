@@ -1,0 +1,217 @@
+ack;ATP;C00002
+ack;Acetate;C00033
+ack;ADP;C00008
+ack;Acetyl phosphate;C00227
+acn;Citrate;C00158
+acn;Isocitrate;C00311
+ada;Acetaldehyde;C00084
+ada;CoA;C00010
+ada;NAD+;C00003
+ada;Acetyl-CoA;C00024
+ada;NADH;C00004
+ada;H+;C00080
+adh;Ethanol;C00469
+adh;NAD+;C00003
+adh;Acetaldehyde;C00084
+adh;NADH;C00004
+adh;H+;C00080
+ald;beta-D-Fructose 1,6-bisphosphate;C05378
+ald;Glycerone phosphate;C00111
+ald;D-Glyceraldehyde 3-phosphate;C00118
+csn;Citrate;C00158
+csn;CoA;C00010
+csn;Acetyl-CoA;C00024
+csn;H2O;C00001
+csn;Oxaloacetate;C00036
+cytbd;Ubiquinol;C00390
+cytbd;Oxygen;C00007
+cytbd;H+;C00080
+cytbd;Ubiquinone;C00399
+cytbd;H2O;C00001
+cytbd;H+;C00080
+eda;2-Dehydro-3-deoxy-6-phospho-D-gluconate;C04442
+eda;D-Glyceraldehyde 3-phosphate;C00118
+eda;Pyruvate;C00022
+edd;6-Phospho-D-gluconate;C00345
+edd;2-Dehydro-3-deoxy-6-phospho-D-gluconate;C04442
+edd;H2;C00001
+fbp;D-Fructose 1,6-bisphosphate;C00354
+fbp;H2O;C00001
+fbp;D-Fructose 6-phosphate;C00085
+fbp;Orthophosphate;C00009
+frd;Quinone;C15602
+frd;Succinate;C00042
+frd;Hydroquinone;C15603
+frd;Fumarate;C00122
+fum;(S)-Malate;C00149
+fum;Fumarate;C00122
+fum;H2;C00001
+gap;D-Glyceraldehyde 3-phosphate;C00118
+gap;Orthophosphate;C00009
+gap;NAD+;C00003
+gap;3-Phospho-D-glyceroyl phosphate;C00236
+gap;NADH;C00004
+gap;H+;C00080
+gdh;L-Glutamate;C00025
+gdh;NADP+;C00006
+gdh;H2O;C00001
+gdh;2-Oxoglutarate;C00026
+gdh;Ammonia;C00014
+gdh;NADPH;C00005
+gdh;H+;C00080
+glh;D-Glucono-1,5-lactone 6-phosphate;C01236
+glh;H2O;C00001
+glh;6-Phospho-D-gluconate;C00345
+gln;ATP;C00002
+gln;L-Glutamate;C00025
+gln;Ammonia;C00014
+gln;ADP;C00008
+gln;Orthophosphate;C00009
+gln;L-Glutamine;C00064
+glt;L-Glutamate;C00025
+glt;NADP+;C00006
+glt;L-Glutamine;C00064
+glt;2-Oxoglutarate;C00026
+glt;NADPH;C00005
+glt;H+;C00080
+icd;Isocitrate;C00311
+icd;NAD+;C00003
+icd;2-Oxoglutarate;C00026
+icd;CO2;C00011
+icd;NADH;C00004
+icd;H+;C00080
+icl;Isocitrate;C00311
+icl;Succinate;C00042
+icl;Glyoxylate;C00048
+kgd;2-Oxoglutarate;C00026
+kgd;CoA;C00010
+kgd;NAD+;C00003
+kgd;Succinyl-CoA;C00091
+kgd;CO2;C00011
+kgd;NADH;C00004
+kgd;H+;C00080
+ldh;(S)-Lactate;C00186
+ldh;NAD+;C00003
+ldh;Pyruvate;C00022
+ldh;NADH;C00004
+ldh;H+;C00080
+mas;(S)-Malate;C00149
+mas;CoA;C00010
+mas;Acetyl-CoA;C00024
+mas;H2O;C00001
+mas;Glyoxylate;C00048
+mdh;(S)-Malate;C00149
+mdh;NAD+;C00003
+mdh;Oxaloacetate;C00036
+mdh;NADH;C00004
+mdh;H+;C00080
+me;(S)-Malate;C00149
+me;NAD+;C00003
+me;Pyruvate;C00022
+me;CO2;C00011
+me;NADH;C00004
+me;H+;C00080
+nad-thd;NADPH;C00005
+nad-thd;NAD+;C00003
+nad-thd;NADP+;C00006
+nad-thd;NADH;C00004
+nadh-dh;Ubiquinone;C00399
+nadh-dh;NADH;C00004
+nadh-dh;H+;C00080
+nadh-dh;H+;C00080
+nadh-dh;Ubiquinol;C00390
+nadh-dh;NAD+;C00003
+nadh-dh;H+;C00080
+pdh;Pyruvate;C00022
+pdh;CoA;C00010
+pdh;NAD+;C00003
+pdh;Acetyl-CoA;C00024
+pdh;CO2;C00011
+pdh;NADH;C00004
+pdh;H+;C00080
+pfk;ATP;C00002
+pfk;beta-D-Fructose 6-phosphate;C05345
+pfk;ADP;C00008
+pfk;beta-D-Fructose 1,6-bisphosphate;C05378
+pfl;Acetyl-CoA;C00024
+pfl;Formate;C00058
+pfl;CoA;C00010
+pfl;Pyruvate;C00022
+pgd;6-Phospho-D-gluconate;C00345
+pgd;NADP+;C00006
+pgd;D-Ribulose 5-phosphate;C00199
+pgd;CO2;C00011
+pgd;NADPH;C00005
+pgd;H+;C00080
+pgh;2-Phospho-D-glycerate;C00631
+pgh;Phosphoenolpyruvate;C00074
+pgh;H2;C00001
+pgi;alpha-D-Glucose 6-phosphate;C00668
+pgi;beta-D-Fructose 6-phosphate;C05345
+pgk;ATP;C00002
+pgk;3-Phospho-D-glycerate;C00197
+pgk;ADP;C00008
+pgk;3-Phospho-D-glyceroyl phosphate;C00236
+pgm;2-Phospho-D-glycerate;C00631
+pgm;3-Phospho-D-glycerate;C00197
+ppc;Orthophosphate;C00009
+ppc;Oxaloacetate;C00036
+ppc;H2O;C00001
+ppc;Phosphoenolpyruvate;C00074
+ppc;CO2;C00011
+ppck;ATP;C00002
+ppck;Oxaloacetate;C00036
+ppck;ADP;C00008
+ppck;Phosphoenolpyruvate;C00074
+ppck;CO2;C00011
+pps;ATP;C00002
+pps;Pyruvate;C00022
+pps;H2O;C00001
+pps;AMP;C00020
+pps;Phosphoenolpyruvate;C00074
+pps;Orthophosphate;C00009
+pta;Acetyl-CoA;C00024
+pta;Orthophosphate;C00009
+pta;CoA;C00010
+pta;Acetyl phosphate;C00227
+pts;Protein N(pi)-phospho-L-histidine;C04261
+pts;D-Glucose;C00031
+pts;Protein histidine;C00615
+pts;alpha-D-Glucose 6-phosphate;C00668
+pyk;ATP;C00002
+pyk;Pyruvate;C00022
+pyk;ADP;C00008
+pyk;Phosphoenolpyruvate;C00074
+rpe;D-Ribulose 5-phosphate;C00199
+rpe;D-Xylulose 5-phosphate;C00231
+rpi;D-Ribose 5-phosphate;C00117
+rpi;D-Ribulose 5-phosphate;C00199
+scs;ATP;C00002
+scs;Succinate;C00042
+scs;CoA;C00010
+scs;ADP;C00008
+scs;Orthophosphate;C00009
+scs;Succinyl-CoA;C00091
+sdh;Quinone;C15602
+sdh;Succinate;C00042
+sdh;Hydroquinone;C15603
+sdh;Fumarate;C00122
+tal;Sedoheptulose 7-phosphate;C05382
+tal;D-Glyceraldehyde 3-phosphate;C00118
+tal;D-Erythrose 4-phosphate;C00279
+tal;D-Fructose 6-phosphate;C00085
+tim;D-Glyceraldehyde 3-phosphate;C00118
+tim;Glycerone phosphate;C00111
+tkt1;Sedoheptulose 7-phosphate;C05382
+tkt1;D-Glyceraldehyde 3-phosphate;C00118
+tkt1;D-Ribose 5-phosphate;C00117
+tkt1;D-Xylulose 5-phosphate;C00231
+tkt2;D-Fructose 6-phosphate;C00085
+tkt2;D-Glyceraldehyde 3-phosphate;C00118
+tkt2;D-Erythrose 4-phosphate;C00279
+tkt2;D-Xylulose 5-phosphate;C00231
+zwf;D-Glucose 6-phosphate;C00092
+zwf;NADP+;C00006
+zwf;D-Glucono-1,5-lactone 6-phosphate;C01236
+zwf;NADPH;C00005
+zwf;H+;C00080

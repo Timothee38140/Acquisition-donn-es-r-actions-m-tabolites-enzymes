@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" sboTerm="SBO:0000624" level="3" version="1" fbc:required="false">
+  <model metaid="meta_ccm_ecoli_xml" id="ccm_ecoli_xml" name="ccm_ecoli.xml" fbc:strict="true">
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmol_per_gDW_per_hr">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+          <unit kind="gram" exponent="-1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="ext" constant="true"/>
+      <compartment id="int" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="M_ACETATE_ext" name="ACETATE-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_CO2_ext" name="CO2-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ETOH_ext" name="ETOH-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_FORMATE_ext" name="FORMATE-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_GLU_ext" name="GLU-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_LACTATE_ext" name="LACTATE-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_OXY_ext" name="OXY-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_H_ext" name="H-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_SUCC_ext" name="SUCC-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_H2O_ext" name="H2O-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_P_ext" name="P-ext" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_BIOMASS" name="BIOMASS" compartment="ext" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ACALD" name="ACALD" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ACETATE" name="ACETATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ACETYL_CoA" name="ACETYL-CoA" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ACETYL_P" name="ACETYL-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ADP" name="ADP" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_AKG" name="AKG" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ATP" name="ATP" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_CITRATE" name="CITRATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_CO2" name="CO2" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_CoA" name="CoA" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_DHAP" name="DHAP" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_DPG" name="DPG" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ERYTH_4_P" name="ERYTH-4-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ETOH" name="ETOH" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_FORMATE" name="FORMATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_FRU_6_P" name="FRU-6-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_FRU_BIS_P" name="FRU-BIS-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_FUMARATE" name="FUMARATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_GA_3P" name="GA-3P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_GLU_6_P" name="GLU-6-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_GLU_LAC_6_P" name="GLU-LAC-6-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_GLUCO_6_P" name="GLUCO-6-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_H" name="H" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_H2O" name="H2O" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_ISOCIT" name="ISOCIT" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_KDPG" name="KDPG" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_L_glutamate" name="L-glutamate" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_L_glutamine" name="L-glutamine" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_LACTATE" name="LACTATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_MALATE" name="MALATE" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_NAD" name="NAD" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_NADH" name="NADH" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_NADP" name="NADP" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_NADPH" name="NADPH" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_O2" name="O2" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_OXALO" name="OXALO" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_P" name="P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_PEP" name="PEP" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_PG" name="PG" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_PG3" name="PG3" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_PYR" name="PYR" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_Q8" name="Q8" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_Q8H2" name="Q8H2" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_RIBOSE_5_P" name="RIBOSE-5-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_RIBULOSE_5_P" name="RIBULOSE-5-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_SED_7_P" name="SED-7-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_SUCC" name="SUCC" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_SUCC_CoA" name="SUCC-CoA" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_XYL_5_P" name="XYL-5-P" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_glyoxylate" name="glyoxylate" compartment="int" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter sboTerm="SBO:0000626" id="cobra_default_lb" value="-1000" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="cobra_default_ub" value="1000" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="cobra_0_bound" value="0" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="minus_inf" value="-INF" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="plus_inf" value="INF" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction metaid="meta_R_EX_ACETATE_ext" sboTerm="SBO:0000627" id="R_EX_ACETATE_ext" name="EX_ACETATE_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_ACETATE_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_CO2_ext" sboTerm="SBO:0000627" id="R_EX_CO2_ext" name="EX_CO2_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_CO2_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_ETOH_ext" sboTerm="SBO:0000627" id="R_EX_ETOH_ext" name="EX_ETOH_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_ETOH_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_FORMATE_ext" sboTerm="SBO:0000627" id="R_EX_FORMATE_ext" name="EX_FORMATE_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_FORMATE_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_GLU_ext" sboTerm="SBO:0000627" id="R_EX_GLU_ext" name="EX_GLU_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_GLU_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_LACTATE_ext" sboTerm="SBO:0000627" id="R_EX_LACTATE_ext" name="EX_LACTATE_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_LACTATE_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_OXY_ext" sboTerm="SBO:0000627" id="R_EX_OXY_ext" name="EX_OXY_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_OXY_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_H_ext" sboTerm="SBO:0000627" id="R_EX_H_ext" name="EX_H_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_H_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_SUCC_ext" sboTerm="SBO:0000627" id="R_EX_SUCC_ext" name="EX_SUCC_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_SUCC_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_H2O_ext" sboTerm="SBO:0000627" id="R_EX_H2O_ext" name="EX_H2O_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_H2O_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_P_ext" sboTerm="SBO:0000627" id="R_EX_P_ext" name="EX_P_ext" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_P_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_EX_BIOMASS" sboTerm="SBO:0000627" id="R_EX_BIOMASS" name="EX_BIOMASS" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_BIOMASS" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction id="R_ack" name="ack" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (Acetate): 59.045</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetate): -240.14003227337923</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (Acetyl phosphate): 138.016</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl phosphate): -1101.0461204964151</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0035387426203479</p>
+            <p>ΔrG°_prime(KJ/mol): 13.990414860694358</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ACETYL_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACETATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_acn" name="acn" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Citrate): 189.101</p>
+            <p>ΔfG°_prime(KJ/mol) (Citrate): -954.8038650821668</p>
+            <p>Mass (Isocitrate): 189.101</p>
+            <p>ΔfG°_prime(KJ/mol) (Isocitrate): -947.9578581141716</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0631683577664957</p>
+            <p>ΔrG°_prime(KJ/mol): 6.846378804366879</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_CITRATE" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ISOCIT" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ada" name="ada" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Acetaldehyde): 44.053</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetaldehyde): 32.0496598176768</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 4195.560647149485</p>
+            <p>ΔrG°_prime(KJ/mol): -20.67776918543086</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACALD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_adh" name="adh" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Ethanol): 46.069</p>
+            <p>ΔfG°_prime(KJ/mol) (Ethanol): 79.02538175410186</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Acetaldehyde): 44.053</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetaldehyde): 32.0496598176768</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0006845591412046</p>
+            <p>ΔrG°_prime(KJ/mol): 18.062499174643563</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ACALD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ETOH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ald" name="ald" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (beta-D-Fructose 1,6-bisphosphate): 336.084</p>
+            <p>ΔfG°_prime(KJ/mol) (beta-D-Fructose 1,6-bisphosphate): -2182.2226037429723</p>
+            <p>Mass (Glycerone phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (Glycerone phosphate): -1082.9130080492132</p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0001371373676884</p>
+            <p>ΔrG°_prime(KJ/mol): 22.047924530096907</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_FRU_BIS_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_DHAP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_atp_synth" name="atp-synth" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="3" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_biomass" name="biomass" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_GLU_6_P" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_RIBOSE_5_P" stoichiometry="0.69" constant="true"/>
+          <speciesReference species="M_ERYTH_4_P" stoichiometry="0.41" constant="true"/>
+          <speciesReference species="M_PEP" stoichiometry="2.1" constant="true"/>
+          <speciesReference species="M_PYR" stoichiometry="3.13" constant="true"/>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="0.95" constant="true"/>
+          <speciesReference species="M_OXALO" stoichiometry="1.88" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="82.9" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="3.26" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="13.53" constant="true"/>
+          <speciesReference species="M_L_glutamine" stoichiometry="2.77" constant="true"/>
+          <speciesReference species="M_L_glutamate" stoichiometry="4.4" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="72.83" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_BIOMASS" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="0.95" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="82.9" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="3.26" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="13.53" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="68.88" constant="true"/>
+          <speciesReference species="M_AKG" stoichiometry="6.04" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="84.93" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_csn" name="csn" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Citrate): 189.101</p>
+            <p>ΔfG°_prime(KJ/mol) (Citrate): -954.8038650821668</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (Oxaloacetate): 130.056</p>
+            <p>ΔfG°_prime(KJ/mol) (Oxaloacetate): -710.862322029855</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.6178802852762033e-07</p>
+            <p>ΔrG°_prime(KJ/mol): 38.76124177617329</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_OXALO" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_CITRATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_cytbd" name="cytbd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Ubiquinol): 320.42900000000003</p>
+            <p>ΔfG°_prime(KJ/mol) (Ubiquinol): 775.3378727518991</p>
+            <p>Mass (Oxygen): 31.998</p>
+            <p>ΔfG°_prime(KJ/mol) (Oxygen): 16.399999999865035</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Mass (Ubiquinone): 318.413</p>
+            <p>ΔfG°_prime(KJ/mol) (Ubiquinone): 792.5833867603292</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.3205973087202195e+50</p>
+            <p>ΔrG°_prime(KJ/mol): -286.07391567420245</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_H" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_O2" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_Q8H2" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_H_ext" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_Q8" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_eda" name="eda" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (2-Dehydro-3-deoxy-6-phospho-D-gluconate): 255.096</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Dehydro-3-deoxy-6-phospho-D-gluconate): -1433.3926428861937</p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0014140037436122</p>
+            <p>ΔrG°_prime(KJ/mol): 16.264350283992513</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_KDPG" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_edd" name="edd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (6-Phospho-D-gluconate): 273.111</p>
+            <p>ΔfG°_prime(KJ/mol) (6-Phospho-D-gluconate): -1542.6324649943892</p>
+            <p>Mass (2-Dehydro-3-deoxy-6-phospho-D-gluconate): 255.096</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Dehydro-3-deoxy-6-phospho-D-gluconate): -1433.3926428861937</p>
+            <p>Mass (H2): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2): -152.0841309000395</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 32092025.750358462</p>
+            <p>ΔrG°_prime(KJ/mol): -42.84420216774356</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLUCO_6_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_KDPG" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_P" name="ex-P" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_P_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_ace" name="ex-ace" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_ACETATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACETATE_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_co2" name="ex-co2" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_CO2_ext" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_etoh" name="ex-etoh" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_ETOH" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ETOH_ext" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_for" name="ex-for" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_FORMATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_FORMATE_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_h2o" name="ex-h2o" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_H2O_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_lac" name="ex-lac" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_LACTATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_LACTATE_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_o2" name="ex-o2" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_OXY_ext" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_O2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ex_suc" name="ex-suc" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_SUCC" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="2" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_SUCC_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H_ext" stoichiometry="2" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_fbp" name="fbp" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Fructose 1,6-bisphosphate): 336.084</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Fructose 1,6-bisphosphate): -2183.1887997271565</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (D-Fructose 6-phosphate): 260.135</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Fructose 6-phosphate): -1291.2323086083798</p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 118.31930722970638</p>
+            <p>ΔrG°_prime(KJ/mol): -11.832362776390504</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_FRU_BIS_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_FRU_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_frd" name="frd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Quinone): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Quinone): 0.0</p>
+            <p>Mass (Succinate): 116.073</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinate): -509.9290086979824</p>
+            <p>Mass (Hydroquinone): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Hydroquinone): 0.0</p>
+            <p>Mass (Fumarate): 114.057</p>
+            <p>ΔfG°_prime(KJ/mol) (Fumarate): -516.8183247722473</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 25.549080807136477</p>
+            <p>ΔrG°_prime(KJ/mol): -8.032864496495648</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_FUMARATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8H2" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_SUCC" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_fum" name="fum" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass ((S)-Malate): 132.072</p>
+            <p>ΔfG°_prime(KJ/mol) ((S)-Malate): -672.3277467814481</p>
+            <p>Mass (Fumarate): 114.057</p>
+            <p>ΔfG°_prime(KJ/mol) (Fumarate): -516.8183247722473</p>
+            <p>Mass (H2): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2): -152.0841309000395</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.2511855393676324</p>
+            <p>ΔrG°_prime(KJ/mol): 3.424645774163196</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_FUMARATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_MALATE" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_gap" name="gap" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (3-Phospho-D-glyceroyl phosphate): 262.005</p>
+            <p>ΔfG°_prime(KJ/mol) (3-Phospho-D-glyceroyl phosphate): -2197.2051479158395</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.6256534275537214</p>
+            <p>ΔrG°_prime(KJ/mol): 1.162463761099616</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_DPG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_gdh" name="gdh" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (L-Glutamate): 146.123</p>
+            <p>ΔfG°_prime(KJ/mol) (L-Glutamate): -349.1667977317067</p>
+            <p>Mass (NADP+): 740.3860000000001</p>
+            <p>ΔfG°_prime(KJ/mol) (NADP+): -2030.775868056622</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (2-Oxoglutarate): 144.083</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Oxoglutarate): -622.1619221256469</p>
+            <p>Mass (Ammonia): 18.038</p>
+            <p>ΔfG°_prime(KJ/mol) (Ammonia): 89.29312212928599</p>
+            <p>Mass (NADPH): 741.3939999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (NADPH): -1965.156948184684</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.3967692389075574e-06</p>
+            <p>ΔrG°_prime(KJ/mol): 33.41782458848138</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_AKG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_L_glutamate" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_glh" name="glh" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Glucono-1,5-lactone 6-phosphate): 256.10400000000004</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glucono-1,5-lactone 6-phosphate): -1365.7403431404514</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (6-Phospho-D-gluconate): 273.111</p>
+            <p>ΔfG°_prime(KJ/mol) (6-Phospho-D-gluconate): -1542.6324649943892</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 27951.69757056897</p>
+            <p>ΔrG°_prime(KJ/mol): -25.37872803793556</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLU_LAC_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GLUCO_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_gln" name="gln" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (L-Glutamate): 146.123</p>
+            <p>ΔfG°_prime(KJ/mol) (L-Glutamate): -349.1667977317067</p>
+            <p>Mass (Ammonia): 18.038</p>
+            <p>ΔfG°_prime(KJ/mol) (Ammonia): 89.29312212928599</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Mass (L-Glutamine): 146.14600000000002</p>
+            <p>ΔfG°_prime(KJ/mol) (L-Glutamine): -93.47316959760116</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 478.5533809207042</p>
+            <p>ΔrG°_prime(KJ/mol): -15.296216993936468</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_L_glutamate" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_L_glutamine" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_glt" name="glt" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (L-Glutamate): 146.123</p>
+            <p>ΔfG°_prime(KJ/mol) (L-Glutamate): -349.1667977317067</p>
+            <p>Mass (NADP+): 740.3860000000001</p>
+            <p>ΔfG°_prime(KJ/mol) (NADP+): -2030.775868056622</p>
+            <p>Mass (L-Glutamine): 146.14600000000002</p>
+            <p>ΔfG°_prime(KJ/mol) (L-Glutamine): -93.47316959760116</p>
+            <p>Mass (2-Oxoglutarate): 144.083</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Oxoglutarate): -622.1619221256469</p>
+            <p>Mass (NADPH): 741.3939999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (NADPH): -1965.156948184684</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 4.283074177548156e-09</p>
+            <p>ΔrG°_prime(KJ/mol): 47.76336086848937</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_AKG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_L_glutamine" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_L_glutamate" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_icd" name="icd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Isocitrate): 189.101</p>
+            <p>ΔfG°_prime(KJ/mol) (Isocitrate): -947.9578581141716</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (2-Oxoglutarate): 144.083</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Oxoglutarate): -622.1619221256469</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.1130351699331712</p>
+            <p>ΔrG°_prime(KJ/mol): 5.403965122012778</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ISOCIT" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_AKG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_icl" name="icl" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Isocitrate): 189.101</p>
+            <p>ΔfG°_prime(KJ/mol) (Isocitrate): -947.9578581141716</p>
+            <p>Mass (Succinate): 116.073</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinate): -509.9290086979824</p>
+            <p>Mass (Glyoxylate): 73.028</p>
+            <p>ΔfG°_prime(KJ/mol) (Glyoxylate): -428.4949298175839</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0213451343460461</p>
+            <p>ΔrG°_prime(KJ/mol): 9.535847191245884</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ISOCIT" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_glyoxylate" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_SUCC" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_kgd" name="kgd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (2-Oxoglutarate): 144.083</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Oxoglutarate): -622.1619221256469</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Succinyl-CoA): 862.57</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinyl-CoA): -2057.961788555722</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 87746.39058629931</p>
+            <p>ΔrG°_prime(KJ/mol): -28.21442965168057</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_AKG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_SUCC_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ldh" name="ldh" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass ((S)-Lactate): 89.071</p>
+            <p>ΔfG°_prime(KJ/mol) ((S)-Lactate): -298.5015020229598</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 7.017011119713345e-05</p>
+            <p>ΔrG°_prime(KJ/mol): 23.708883675875995</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_LACTATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_mas" name="mas" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass ((S)-Malate): 132.072</p>
+            <p>ΔfG°_prime(KJ/mol) ((S)-Malate): -672.3277467814481</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (Glyoxylate): 73.028</p>
+            <p>ΔfG°_prime(KJ/mol) (Glyoxylate): -428.4949298175839</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.6906940774087757e-07</p>
+            <p>ΔrG°_prime(KJ/mol): 38.652118421576255</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_glyoxylate" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_MALATE" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_mdh" name="mdh" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass ((S)-Malate): 132.072</p>
+            <p>ΔfG°_prime(KJ/mol) ((S)-Malate): -672.3277467814481</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Oxaloacetate): 130.056</p>
+            <p>ΔfG°_prime(KJ/mol) (Oxaloacetate): -710.862322029855</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 2.2731555778701547e-05</p>
+            <p>ΔrG°_prime(KJ/mol): 26.50293016623118</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_MALATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_OXALO" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_me" name="me" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass ((S)-Malate): 132.072</p>
+            <p>ΔfG°_prime(KJ/mol) ((S)-Malate): -672.3277467814481</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0075715783028201</p>
+            <p>ΔrG°_prime(KJ/mol): 12.104950519884824</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_MALATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_nad_thd" name="nad-thd" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_nadh_dh" name="nadh-dh" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_H" stoichiometry="5" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_H_ext" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8H2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pdh" name="pdh" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (NAD+): 662.422</p>
+            <p>ΔfG°_prime(KJ/mol) (NAD+): -1143.7174255495097</p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Mass (NADH): 663.431</p>
+            <p>ΔfG°_prime(KJ/mol) (NADH): -1078.084459875474</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 992239.2321205352</p>
+            <p>ΔrG°_prime(KJ/mol): -34.226838870158645</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NAD" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADH" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pfk" name="pfk" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (beta-D-Fructose 6-phosphate): 258.12</p>
+            <p>ΔfG°_prime(KJ/mol) (beta-D-Fructose 6-phosphate): -1286.876430068866</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (beta-D-Fructose 1,6-bisphosphate): 336.084</p>
+            <p>ΔfG°_prime(KJ/mol) (beta-D-Fructose 1,6-bisphosphate): -2182.2226037429723</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 4875.562865107302</p>
+            <p>ΔrG°_prime(KJ/mol): -21.05010908198642</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_FRU_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_FRU_BIS_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pfl" name="pfl" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (Formate): 45.018</p>
+            <p>ΔfG°_prime(KJ/mol) (Formate): -305.9786807379839</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.000337704868379</p>
+            <p>ΔrG°_prime(KJ/mol): 19.814039438597177</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_FORMATE" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pgd" name="pgd" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (6-Phospho-D-gluconate): 273.111</p>
+            <p>ΔfG°_prime(KJ/mol) (6-Phospho-D-gluconate): -1542.6324649943892</p>
+            <p>Mass (NADP+): 740.3860000000001</p>
+            <p>ΔfG°_prime(KJ/mol) (NADP+): -2030.775868056622</p>
+            <p>Mass (D-Ribulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Ribulose 5-phosphate): -1211.9348052546716</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Mass (NADPH): 741.3939999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (NADPH): -1965.156948184684</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0155923137048369</p>
+            <p>ΔrG°_prime(KJ/mol): 10.314309751522842</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLUCO_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_RIBULOSE_5_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pgh" name="pgh" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (2-Phospho-D-glycerate): 183.033</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Phospho-D-glycerate): -1337.3948997496827</p>
+            <p>Mass (Phosphoenolpyruvate): 165.018</p>
+            <p>ΔfG°_prime(KJ/mol) (Phosphoenolpyruvate): -1189.121616347144</p>
+            <p>Mass (H2): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2): -152.0841309000395</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 4.65230074473971</p>
+            <p>ΔrG°_prime(KJ/mol): -3.8108419943564513</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PG" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PEP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pgi" name="pgi" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (alpha-D-Glucose 6-phosphate): 258.12</p>
+            <p>ΔfG°_prime(KJ/mol) (alpha-D-Glucose 6-phosphate): -1285.7310736360082</p>
+            <p>Mass (beta-D-Fructose 6-phosphate): 258.12</p>
+            <p>ΔfG°_prime(KJ/mol) (beta-D-Fructose 6-phosphate): -1286.876430068866</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.590759694596199</p>
+            <p>ΔrG°_prime(KJ/mol): -1.1506968221266334</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLU_6_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_FRU_6_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pgk" name="pgk" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (3-Phospho-D-glycerate): 183.033</p>
+            <p>ΔfG°_prime(KJ/mol) (3-Phospho-D-glycerate): -1341.8753768885797</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (3-Phospho-D-glyceroyl phosphate): 262.005</p>
+            <p>ΔfG°_prime(KJ/mol) (3-Phospho-D-glyceroyl phosphate): -2197.2051479158395</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0003756925956792</p>
+            <p>ΔrG°_prime(KJ/mol): 19.549800047385677</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_DPG" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PG3" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pgm" name="pgm" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (2-Phospho-D-glycerate): 183.033</p>
+            <p>ΔfG°_prime(KJ/mol) (2-Phospho-D-glycerate): -1337.3948997496827</p>
+            <p>Mass (3-Phospho-D-glycerate): 183.033</p>
+            <p>ΔfG°_prime(KJ/mol) (3-Phospho-D-glycerate): -1341.8753768885797</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 6.081653924672437</p>
+            <p>ΔrG°_prime(KJ/mol): -4.474954330214274</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PG3" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PG" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ppc" name="ppc" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Mass (Oxaloacetate): 130.056</p>
+            <p>ΔfG°_prime(KJ/mol) (Oxaloacetate): -710.862322029855</p>
+            <p>Mass (H2O): 18.015</p>
+            <p>ΔfG°_prime(KJ/mol) (H2O): -152.0841309000395</p>
+            <p>Mass (Phosphoenolpyruvate): 165.018</p>
+            <p>ΔfG°_prime(KJ/mol) (Phosphoenolpyruvate): -1189.121616347144</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 8.798670862338851e-08</p>
+            <p>ΔrG°_prime(KJ/mol): 40.27109358321334</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PEP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H2O" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_OXALO" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_ppck" name="ppck" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (Oxaloacetate): 130.056</p>
+            <p>ΔfG°_prime(KJ/mol) (Oxaloacetate): -710.862322029855</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (Phosphoenolpyruvate): 165.018</p>
+            <p>ΔfG°_prime(KJ/mol) (Phosphoenolpyruvate): -1189.121616347144</p>
+            <p>Mass (CO2): 44.00899999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (CO2): -386.0000000000019</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0137314540187606</p>
+            <p>ΔrG°_prime(KJ/mol): 10.629340309269908</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_OXALO" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PEP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CO2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pta" name="pta" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Acetyl-CoA): 805.54</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl-CoA): -1781.644408148922</p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (Acetyl phosphate): 138.016</p>
+            <p>ΔfG°_prime(KJ/mol) (Acetyl phosphate): -1101.0461204964151</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0302388263833999</p>
+            <p>ΔrG°_prime(KJ/mol): 8.672467245030674</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ACETYL_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ACETYL_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pts" name="pts" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Protein N(pi)-phospho-L-histidine): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Protein N(pi)-phospho-L-histidine): 0.0</p>
+            <p>Mass (D-Glucose): 180.156</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glucose): -399.1495801060229</p>
+            <p>Mass (Protein histidine): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Protein histidine): 0.0</p>
+            <p>Mass (alpha-D-Glucose 6-phosphate): 258.12</p>
+            <p>ΔfG°_prime(KJ/mol) (alpha-D-Glucose 6-phosphate): -1285.7310736360082</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 2.687508406127218e+155</p>
+            <p>ΔrG°_prime(KJ/mol): -887.142842280743</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLU_ext" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_PEP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GLU_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_pyk" name="pyk" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (Pyruvate): 87.055</p>
+            <p>ΔfG°_prime(KJ/mol) (Pyruvate): -339.8307842472289</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (Phosphoenolpyruvate): 165.018</p>
+            <p>ΔfG°_prime(KJ/mol) (Phosphoenolpyruvate): -1189.121616347144</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 4.122486758591231e-05</p>
+            <p>ΔrG°_prime(KJ/mol): 25.02731995561632</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_PEP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_PYR" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_rpe" name="rpe" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Ribulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Ribulose 5-phosphate): -1211.9348052546716</p>
+            <p>Mass (D-Xylulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Xylulose 5-phosphate): -1215.322945313571</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 3.92294847176368</p>
+            <p>ΔrG°_prime(KJ/mol): -3.3881578544159083</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_RIBULOSE_5_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_XYL_5_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_rpi" name="rpi" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Ribose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Ribose 5-phosphate): -1214.0678353454375</p>
+            <p>Mass (D-Ribulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Ribulose 5-phosphate): -1211.9348052546716</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.421603754160855</p>
+            <p>ΔrG°_prime(KJ/mol): 2.140929724765954</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_RIBULOSE_5_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_RIBOSE_5_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_scs" name="scs" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (ATP): 503.151</p>
+            <p>ΔfG°_prime(KJ/mol) (ATP): -2270.4800916865584</p>
+            <p>Mass (Succinate): 116.073</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinate): -509.9290086979824</p>
+            <p>Mass (CoA): 763.5</p>
+            <p>ΔfG°_prime(KJ/mol) (CoA): -1727.9787463436437</p>
+            <p>Mass (ADP): 424.18</p>
+            <p>ΔfG°_prime(KJ/mol) (ADP): -1395.6292467273274</p>
+            <p>Mass (Orthophosphate): 95.979</p>
+            <p>ΔfG°_prime(KJ/mol) (Orthophosphate): -1056.0794480718705</p>
+            <p>Mass (Succinyl-CoA): 862.57</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinyl-CoA): -2057.961788555722</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.631945433878554</p>
+            <p>ΔrG°_prime(KJ/mol): -1.2140582230074417</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_SUCC_CoA" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ADP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_SUCC" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_ATP" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_CoA" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_sdh" name="sdh" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Quinone): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Quinone): 0.0</p>
+            <p>Mass (Succinate): 116.073</p>
+            <p>ΔfG°_prime(KJ/mol) (Succinate): -509.9290086979824</p>
+            <p>Mass (Hydroquinone): nan</p>
+            <p>ΔfG°_prime(KJ/mol) (Hydroquinone): 0.0</p>
+            <p>Mass (Fumarate): 114.057</p>
+            <p>ΔfG°_prime(KJ/mol) (Fumarate): -516.8183247722473</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 25.549080807136477</p>
+            <p>ΔrG°_prime(KJ/mol): -8.032864496495648</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_SUCC" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_FUMARATE" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_Q8H2" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_tal" name="tal" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Sedoheptulose 7-phosphate): 288.146</p>
+            <p>ΔfG°_prime(KJ/mol) (Sedoheptulose 7-phosphate): -1355.9291413178034</p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (D-Erythrose 4-phosphate): 198.068</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Erythrose 4-phosphate): -1142.9240538025206</p>
+            <p>Mass (D-Fructose 6-phosphate): 260.135</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Fructose 6-phosphate): -1291.2323086083798</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 1.4600019306957444</p>
+            <p>ΔrG°_prime(KJ/mol): -0.9380787429734596</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_SED_7_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_ERYTH_4_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_FRU_6_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_tim" name="tim" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (Glycerone phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (Glycerone phosphate): -1082.9130080492132</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 9.643632431497108</p>
+            <p>ΔrG°_prime(KJ/mol): -5.617742386692498</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_DHAP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_tkt1" name="tkt1" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (Sedoheptulose 7-phosphate): 288.146</p>
+            <p>ΔfG°_prime(KJ/mol) (Sedoheptulose 7-phosphate): -1355.9291413178034</p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (D-Ribose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Ribose 5-phosphate): -1214.0678353454375</p>
+            <p>Mass (D-Xylulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Xylulose 5-phosphate): -1215.322945313571</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.2130474395533941</p>
+            <p>ΔrG°_prime(KJ/mol): 3.8328502792565473</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_RIBOSE_5_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_XYL_5_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_SED_7_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_tkt2" name="tkt2" reversible="true" fast="false" fbc:lowerFluxBound="cobra_default_lb" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Fructose 6-phosphate): 260.135</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Fructose 6-phosphate): -1291.2323086083798</p>
+            <p>Mass (D-Glyceraldehyde 3-phosphate): 168.042</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glyceraldehyde 3-phosphate): -1077.3005052258698</p>
+            <p>Mass (D-Erythrose 4-phosphate): 198.068</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Erythrose 4-phosphate): -1142.9240538025206</p>
+            <p>Mass (D-Xylulose 5-phosphate): 228.094</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Xylulose 5-phosphate): -1215.322945313571</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 0.0156661429562754</p>
+            <p>ΔrG°_prime(KJ/mol): 10.302600299524045</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_ERYTH_4_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_XYL_5_P" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GA_3P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_FRU_6_P" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction id="R_zwf" name="zwf" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <notes>
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <p>Metabolites informations: </p>
+            <p>Mass (D-Glucose 6-phosphate): 258.12</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glucose 6-phosphate): -1293.8755834729386</p>
+            <p>Mass (NADP+): 740.3860000000001</p>
+            <p>ΔfG°_prime(KJ/mol) (NADP+): -2030.775868056622</p>
+            <p>Mass (D-Glucono-1,5-lactone 6-phosphate): 256.10400000000004</p>
+            <p>ΔfG°_prime(KJ/mol) (D-Glucono-1,5-lactone 6-phosphate): -1365.7403431404514</p>
+            <p>Mass (NADPH): 741.3939999999999</p>
+            <p>ΔfG°_prime(KJ/mol) (NADPH): -1965.156948184684</p>
+            <p>Mass (H+): 1.007</p>
+            <p>ΔfG°_prime(KJ/mol) (H+): 0.0</p>
+            <p>Reactions informations: </p>
+            <p>Keq: 15.676000566829632</p>
+            <p>ΔrG°_prime(KJ/mol): -6.822034681511923</p>
+          </html>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="M_GLU_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADP" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_GLU_LAC_6_P" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_NADPH" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_H" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+    </listOfReactions>
+    <fbc:listOfObjectives fbc:activeObjective="obj">
+      <fbc:objective fbc:id="obj" fbc:type="maximize">
+        <fbc:listOfFluxObjectives>
+          <fbc:fluxObjective fbc:reaction="R_biomass" fbc:coefficient="1"/>
+        </fbc:listOfFluxObjectives>
+      </fbc:objective>
+    </fbc:listOfObjectives>
+  </model>
+</sbml>
