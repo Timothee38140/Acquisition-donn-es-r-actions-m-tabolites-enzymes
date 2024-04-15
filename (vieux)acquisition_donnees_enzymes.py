@@ -22,17 +22,17 @@
 ## FORMAT OUTPUT:
 # Le fichier rendu sera sous format .ods de la forme suivante (les , représentent ici la délimitation verticale entre les cases du document, les espaces ne sont pas à prendre en compte):
 # Sur la première page (données enzymes Km):
-# enzyme         ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
-# nom enzyme     ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Km   , mutant ou none ,  ph      , T°C      ,   autres infos données     
+# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
+# titre réaction ,  nom enzyme   ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Km   , mutant ou none ,  ph      , T°C      ,   autres infos données     
 # Exemple:
-# enzyme         ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
-# pyruvate_kinase,	2.7.1.40     , phosphoenolpyruvate, Homo sapiens,	1.5	 ,    none	      ,  none	 ,   none	, in the absence of activator + 
+# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
+# phospho        ,pyruvate_kinase,	2.7.1.40     , phosphoenolpyruvate, Homo sapiens,	1.5	 ,    none	      ,  none	 ,   none	, in the absence of activator + 
 # Sur la deuxième page (données enzymes Kcat):
-# enzyme         ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
-# nom enzyme     ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Kcat , mutant ou none ,  ph      , T°C      ,   autres infos données     
+# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
+# titre réaction ,  nom enzyme   ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Kcat , mutant ou none ,  ph      , T°C      ,   autres infos données     
 # Exemple:
-# enzyme         ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
-# pyruvate_kinase,	2.7.1.40	 , phosphoenolpyruvate,	Homo sapiens,	3.2	 ,    none	      ,  6.0	 ,  25 	    , wild type enzyme +   in the absenceof K+ +   in 50 mM Mes-Tris + 
+# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
+# pyruv          ,pyruvate_kinase,	2.7.1.40	 , phosphoenolpyruvate,	Homo sapiens,	3.2	 ,    none	      ,  6.0	 ,  25 	    , wild type enzyme +   in the absenceof K+ +   in 50 mM Mes-Tris + 
 # ... 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
@@ -177,13 +177,13 @@ with open('/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.txt')
         kcats = r.Kcatvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)
         liste_conditions_km = get_liste_km_kcat_conditions(kms,ID_compound)
         liste_conditions_kcat = get_liste_km_kcat_conditions(kcats,ID_compound)
-        dico_correspondance[nom] = [ID_enzyme, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
+        dico_correspondance[nom] = [nom, ID_enzyme, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
     
 
-data.update({"données enzymes Km": [["enzyme","ID_enzyme","ID_compound","espèce","Km","mutant (Km)","ph (Km)","T°C (Km)","autre (Km)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
+data.update({"données enzymes Km": [["ID_réaction","enzyme","ID_enzyme","ID_compound","espèce","Km","mutant (Km)","ph (Km)","T°C (Km)","autre (Km)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
 for valeur in dico_correspondance.values():
-    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
-    for liste_donnees in valeur[4]:
+    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+    for liste_donnees in valeur[5]:
         res = repartis_conditions(liste_donnees)
         print(res)
         for liste in res:
@@ -191,19 +191,19 @@ for valeur in dico_correspondance.values():
             for elem in liste :
                 liste_finale.append(elem)
             data["données enzymes Km"].append(liste_finale)
-            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
+            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
 save_data("/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods", data)
 
-data.update({"données enzymes Kcat": [["enzyme","ID_enzyme","ID_compound","espèce","Kcat","mutant (Kcat)","ph (Kcat)","T°C (Kcat)","autre (Kcat)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
+data.update({"données enzymes Kcat": [["ID_réaction","enzyme","ID_enzyme","ID_compound","espèce","Kcat","mutant (Kcat)","ph (Kcat)","T°C (Kcat)","autre (Kcat)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
 for valeur in dico_correspondance.values():
-    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
-    for liste_donnees in valeur[5]:
+    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+    for liste_donnees in valeur[6]:
         res = repartis_conditions(liste_donnees)
         for liste in res:
             liste_finale.append(str(liste_donnees[0]))
             for elem in liste :
                 liste_finale.append(elem)
             data["données enzymes Kcat"].append(liste_finale)
-            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
+            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
 save_data("/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods", data)
 

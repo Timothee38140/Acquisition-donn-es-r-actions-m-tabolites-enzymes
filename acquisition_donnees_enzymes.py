@@ -6,6 +6,11 @@
 # Copyright BRENDA : Copyrighted by Dietmar Schomburg, Techn. University Braunschweig, GERMANY. Distributed under the License as stated at http:/www.brenda-enzymes.org
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
+# LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
+# python acquisition_donnees_enzymes.py -i "chemin document métabolites" -o "chemin document de sortie"
+# exemple:
+# python acquisition_donnees_enzymes.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/correspondances_brenda.txt" -o "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/correspondances_brenda.ods"
+# ------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # FORMAT ET ORGANISATION DES FICHIERS D'ENTRÉE ET DE SORTIE
@@ -160,50 +165,62 @@ def repartis_conditions(liste_donnees):
         res.append(liste_res_i)                  
     return res
 
+# Entrée des données de Km et Kcat dans un document .ods
+# ------------------------------------------------------------------------------------------------------------------------------------------
+def entree_donnees(entree: str):
+    '''Organisation des donnees de Km et Kcat dans un document .ods
+    Ce document prend simplement en entrée les noms "Km" ou autre (Kcat) et donne en sortie le document .ods selon la forme montrée dans la partie "FORMAT ET ORGANISATION DES FICHIERS D'ENTRÉE ET DE SORTIE".
+    '''
+    data.update({f"données enzymes {entree}": [["enzyme","ID_enzyme","ID_compound","espèce",entree, f"mutant ({entree})",f"ph ({entree})",f"T°C ({entree})",f"autre ({entree})"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
+    if entree == "Km":        #sélectionne les données de Km si l'input est "Km"
+        valeur_index = 5
+    else:                     #sinon, sélectionne les données de Kcat
+        valeur_index = 6
+    
+    for valeur in dico_correspondance.values():
+        liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+        for i in valeur[valeur_index]:
+            res = repartis_conditions(i)
+            for liste in res:
+                liste_finale.append(str(i[0]))
+                for elem in liste :
+                    liste_finale.append(elem)
+                data[f"données enzymes {entree}"].append(liste_finale)
+                liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+    save_data(args.output, data)
+
+
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # SCRIPT PRINCIPAL
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-#python brenda.py -i "/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.txt" -o "/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods"
-with open('/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.txt') as document: #Conversion du document correspondances des ID réaction et kegg de métabolites de l'équation de réaction en variable "document", entrer le chemin du document dans le terminal
+# Récupération des fichiers inscrits dans la ligne de commande
+# ------------------------------------------------------------------------------------------------------------------------------------------
 
-    dico_correspondance = {}
+parser.add_argument("-i", "--input", help="input file")
+parser.add_argument("-o", "--output", help="output file")
+args = parser.parse_args()
 
-    for line in document :        
-        (nom, ID_enzyme, ID_EC, ID_compound, ID_species ) = line.split(";")      
-        ID_species = ID_species.strip("\n") 
-        r = brenda.reactions.get_by_id(ID_EC)
-        kms = r.KMvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)    
-        kcats = r.Kcatvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)
-        liste_conditions_km = get_liste_km_kcat_conditions(kms,ID_compound)
-        liste_conditions_kcat = get_liste_km_kcat_conditions(kcats,ID_compound)
-        dico_correspondance[nom] = [nom, ID_enzyme, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
-    
+try: 
+    with open(args.input, "r") as document_read: #Conversion du document correspondances des ID métabolites et kegg en variable "document",  entrer le chemin du document dans le terminal
+        document = document_read.readlines()
+        dico_correspondance = {}
+        for line in document :        
+            (nom, ID_enzyme, ID_EC, ID_compound, ID_species ) = line.split(";")      
+            ID_species = ID_species.strip("\n") 
+            r = brenda.reactions.get_by_id(ID_EC)
+            kms = r.KMvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)    
+            kcats = r.Kcatvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)
+            liste_conditions_km = get_liste_km_kcat_conditions(kms,ID_compound)
+            liste_conditions_kcat = get_liste_km_kcat_conditions(kcats,ID_compound)
+            dico_correspondance[nom] = [nom, ID_enzyme, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
+except:
+    print("Erreur du format d'entrée")
+else:
+    entree_donnees("Km")
+    entree_donnees("Kcat")
 
-data.update({"données enzymes Km": [["ID_réaction","enzyme","ID_enzyme","ID_compound","espèce","Km","mutant (Km)","ph (Km)","T°C (Km)","autre (Km)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
-for valeur in dico_correspondance.values():
-    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
-    for liste_donnees in valeur[5]:
-        res = repartis_conditions(liste_donnees)
-        print(res)
-        for liste in res:
-            liste_finale.append(str(liste_donnees[0]))
-            for elem in liste :
-                liste_finale.append(elem)
-            data["données enzymes Km"].append(liste_finale)
-            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
-save_data("/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods", data)
 
-data.update({"données enzymes Kcat": [["ID_réaction","enzyme","ID_enzyme","ID_compound","espèce","Kcat","mutant (Kcat)","ph (Kcat)","T°C (Kcat)","autre (Kcat)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
-for valeur in dico_correspondance.values():
-    liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
-    for liste_donnees in valeur[6]:
-        res = repartis_conditions(liste_donnees)
-        for liste in res:
-            liste_finale.append(str(liste_donnees[0]))
-            for elem in liste :
-                liste_finale.append(elem)
-            data["données enzymes Kcat"].append(liste_finale)
-            liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
-save_data("/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods", data)
+
+
 

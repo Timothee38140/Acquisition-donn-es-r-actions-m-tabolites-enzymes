@@ -81,6 +81,8 @@ import pandas as pd                        # package permettant la lecture de fi
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 model = cobra.io.read_sbml_model('/home/timotheerabot/Documents/stage_LBBE/M1.xml')
+
+# Entrée données métabolites (Masse et ΔfG°')
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste = []
@@ -96,13 +98,14 @@ for j in liste:
     i = i + 1
 print(dico)
 
-for met in model.metabolites:
+for met in model.metabolites:        # écriture dans la partie métabolites
     for key,value in dico.items() :
         key = key.strip('M_')
         if key == str(met):
-            met.notes["Masse"] = value[1]
+            met.notes["Masse"] = value[1]    # notes crée une sous partie avec les données
             met.notes["ΔfG°_prime(KJ/mol)"] = value[2]
 
+# Entrée données réactions (Keq et ΔG de réaction)
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste2 = []
@@ -117,14 +120,15 @@ for j in liste2:
     i = i + 1
 
 
-for rxn in model.reactions:
+for rxn in model.reactions:        # écriture dans la partie réactions
     (rxn_str,equation) = str(rxn).split(":")
     for key,value in dico2.items() :
         key = key.strip('R_')
         if key == rxn_str:
             rxn.notes["Keq"] = value[1]
-            rxn.notes["Delta G de réaction (en KJ/mol)"] = value[2]
+            rxn.notes["ΔG de réaction (en KJ/mol)"] = value[2]
 
+# Entrée données enzymes (Km, Kcat et leurs conditions)
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste3 = []
@@ -152,7 +156,7 @@ for j in liste4:
     i = i + 1
 
 
-for ez in model.reactions:
+for ez in model.reactions:        # écriture dans la partie réactions
     (ez_str,equation) = str(ez).split(":")
     i = 1
     for key,value in dico3.items() :
@@ -176,10 +180,9 @@ for ez in model.reactions:
             ez.notes["T°C (Kcat)"] = value[7]
             ez.notes["autre (Kcat)"] = value[8]
             i = i + 1
-    
+
+# Entrée du modèle dans le document sbml
 # ------------------------------------------------------------------------------------------------------------------------------------------
-
-
 cobra.io.write_sbml_model(model, "M1.xml")
 
 
