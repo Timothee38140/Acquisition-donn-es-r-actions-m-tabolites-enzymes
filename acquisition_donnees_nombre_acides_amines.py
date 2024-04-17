@@ -1,12 +1,10 @@
 import requests as r
-from Bio import SeqIO
-from io import StringIO
-import biotite.sequence.io.fasta as fasta
 
 cID='P04637'
 
 baseUrl="http://www.uniprot.org/uniprot/"
 currentUrl=baseUrl+cID+".fasta"
+print(currentUrl)
 response = r.post(currentUrl)
 cData=''.join(response.text)
 seq = cData.split("\n")

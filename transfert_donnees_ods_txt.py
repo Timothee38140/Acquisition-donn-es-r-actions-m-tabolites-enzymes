@@ -46,14 +46,23 @@ fichier = open(args.output, "w")
 
 # Enregistrement de la première ligne du classeur dans le fichier .txt (elle est considéré par le package pandas comme le titre des colonnes, et donc ne peut pas être sélectionner de la même manière que les lignes suivantes)
 # ------------------------------------------------------------------------------------------------------------------------------------------
+liste = []
 ligne1 = classeur.keys()
-ligne1 = ";".join(ligne1) + "\n"
+for i in ligne1 :
+    if "Unnamed" in str(i):
+        i = "nan" 
+    liste.append(str(i))
+ligne1 = ";".join(liste) + "\n"
 fichier.write(ligne1)      # Écriture dans fichier .txt
+liste.clear()
 
 # Enregistrement des lignes suivantes dans le fichier .txt
 # ------------------------------------------------------------------------------------------------------------------------------------------
 for _,row in classeur.iterrows():
-    row = ";".join(row) + "\n"
+    for i in row :
+        liste.append(str(i))
+    row = ";".join(liste) + "\n"
+    liste.clear()
     fichier.write(row)
 fichier.close
 
