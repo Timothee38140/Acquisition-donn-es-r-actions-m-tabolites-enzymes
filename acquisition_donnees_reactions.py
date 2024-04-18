@@ -6,7 +6,7 @@
 # LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
 # python acquisition_donnees_reactions.py -i "chemin document réactions" -o "chemin document de sortie"
 # exemple:
-# python acquisition_donnees_reactions.py -i "/home/timotheerabot/Documents/stage_LBBE/correspondances3.txt" -o "/home/timotheerabot/Documents/stage_LBBE/correspondances3.ods"
+# python acquisition_donnees_reactions.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/reactions.txt" -o "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/stest.ods"
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
@@ -16,8 +16,7 @@
 ## FORMAT INPUT: 
 # Fichier.txt dont le contenu doit être de la forme suivante sur chaque ligne:
 #ID_réaction;nombre_stoechio*ID_kegg:métabolite_1+nombre_stoechio*ID_kegg:métabolite_2+...=nombre_stoechio*ID_kegg:métabolite_3+nombre_stoechio*ID_kegg:métabolite_4+...
-# ATTENTION : Les espaces entre les kegg et les + / = peuvent être présents, mais seulement si ils sont aux nombres de 1 de chaque côté des symboles, il faut ensuite aller modifier la fonction "get_dico_correspondance_ID_reaction_equation" selon les instruction de la phrase e nmajuscule
-# Le "*" peut être remplacé par un espace ,normalement aucune modification n'est à envisager dans ce cas, cependant, si un problème survenait, la même fonction que précédemment mentionnée ("get_dico_correspondance_ID_reaction_equation") est à modifier.
+# Des espaces entre les kegg et les +/= peuvent être ajoutés et le "*" peut être remplacé par un espace ,normalement aucune modification n'est à envisager dans ce cas, cependant, si un problème survenait, voir la fonction: get_dico_correspondance_ID_reaction_equation
 # Exemple:
 #ATP_hydrolysis;C00001+C00002=C00008+C00009
 #Glycolyse;C00031+2*C00003+2*C00008+2*C00009=2*C00022+2*C00004+2*C00002+2*C00001
@@ -74,7 +73,7 @@ def get_dico_correspondance_ID_reaction_equation(document):
     for line in document:                              # boucle afin d'organiser toutes les equations ligne par ligne
         (ID_reaction, equation) = line.split(";")      # séparation en deux chaines de caractères: l'ID de la réaction et l'equation de réaction
         equation = equation.strip("\n")                # ici et sur les trois prochaine lignes : organisation de l'equation
-        equation = equation.replace("+"," + ")         # CETTE LIGNE ET CELLE SUIVANTE SONT A SUPPRIMER SI LES ESPACES SONT DEJA PRESENTS
+        equation = equation.replace("+"," + ")         
         equation = equation.replace("="," = ")
         equation = equation.replace("*"," ")
         dico_correspondance[ID_reaction] = equation
@@ -123,22 +122,22 @@ args = parser.parse_args()
 
 # Application de la fonction de conversion du document input en dictionnaire
 # ------------------------------------------------------------------------------------------------------------------------------------------
-try:
-    with open(args.input, "r") as document_read: #Conversion du document correspondances des ID réaction et kegg de métabolites de l'équation de réaction en variable "document", entrer le chemin du document dans le terminal
-        document = document_read.readlines()  
-    dico_correspondance,dico_correspondance_ID = get_dico_correspondance_ID_reaction_equation(document)
-    delta_G,Keq_full = get_donnees(dico_correspondance_ID)
-except:
-    print("Erreur du format d'entrée")
-else:
-    # Création du document .ods regroupant toutes les données selon la forme montrée dans la parite "format output"
-    # ------------------------------------------------------------------------------------------------------------------------------------------
-    data.update({"données_réactions": [["Réactions","Équations","Delta G de réaction (en KJ/mol)","Keq"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire   
-    i = 0
-    for ID_reaction,equation in dico_correspondance.items() :
-        donnee_delta_G = delta_G[i]       # extraction des données de liste en variables
-        donnee_Keq = Keq_full[i]
-        i = i + 1
-        data["données_réactions"].append([ID_reaction, equation, str(donnee_delta_G), str(donnee_Keq)])  # ajout à chaque ligne de l'ID suivi de l'equation, des données de ΔrG°' et Keq .
-    save_data(args.output, data)    # transfer des données de "data" sur le document .ods, à remplaçer
+# try:
+with open(args.input, "r") as document_read: #Conversion du document correspondances des ID réaction et kegg de métabolites de l'équation de réaction en variable "document", entrer le chemin du document dans le terminal
+    document = document_read.readlines()  
+dico_correspondance,dico_correspondance_ID = get_dico_correspondance_ID_reaction_equation(document)
+delta_G,Keq_full = get_donnees(dico_correspondance_ID)
+# except:
+#     print("Erreur du format d'entrée")
+# else:
+# Création du document .ods regroupant toutes les données selon la forme montrée dans la parite "format output"
+# ------------------------------------------------------------------------------------------------------------------------------------------
+data.update({"données_réactions": [["Réactions","Équations","Delta G de réaction (en KJ/mol)","Keq"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire   
+i = 0
+for ID_reaction,equation in dico_correspondance.items() :
+    donnee_delta_G = delta_G[i]       # extraction des données de liste en variables
+    donnee_Keq = Keq_full[i]
+    i = i + 1
+    data["données_réactions"].append([ID_reaction, equation, str(donnee_delta_G), str(donnee_Keq)])  # ajout à chaque ligne de l'ID suivi de l'equation, des données de ΔrG°' et Keq .
+save_data(args.output, data)    # transfer des données de "data" sur le document .ods, à remplaçer
 

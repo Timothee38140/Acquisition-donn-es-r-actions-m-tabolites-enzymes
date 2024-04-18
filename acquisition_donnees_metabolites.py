@@ -138,10 +138,10 @@ def get_dico_deltafgO_mass_from_equilibrator_with_id_kegg(correspondance):
 # FONCTION SI ID DE REACTION DANS DOCUMENT TXT :
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-# Conversion du document input en dictionnaire
+# Conversion du document input en liste
 # ------------------------------------------------------------------------------------------------------------------------------------------
 def get_liste_correspondance_id_metabolite_id_kegg(document):
-    ''' Conversion des données de correspondances entre les ID de métabolites et ID de kegg issues du document introduit, en dictionnaire:
+    ''' Conversion des données de correspondances entre les ID de métabolites et ID de kegg issues du document introduit, en liste:
     INPUT : document   (file)
     Format : ID_métabolite;ID_kegg
     M_CO2;C00011
@@ -157,10 +157,10 @@ def get_liste_correspondance_id_metabolite_id_kegg(document):
         liste_correspondance_ID.append([ID_reac, ID_metabolite, ID_kegg])
     return liste_correspondance_ID
 
-# Acquisition des données de masse et de ΔfG°' et organisation des données dans un dictionnaire au format {'ID_kegg':'[masse, ΔfG_standard_prime]',...}
+# Acquisition des données de masse et de ΔfG°' et organisation des données dans une liste
 # ------------------------------------------------------------------------------------------------------------------------------------------
 def get_info_deltafgO_mass_from_equilibrator_with_id_kegg(correspondance):
-    ''' Acquisition des données de masse et de ΔfG°' à partir des ID_kegg et des données de l'api equilibrator et organisation des données dans un dictionnaire:
+    ''' Acquisition des données de masse et de ΔfG°' à partir des ID_kegg et des données de l'api equilibrator et organisation des données dans une liste:
     INPUT : liste_correspondance
     Format : liste_correspondance = [[ID_reac, ID_metabolite, ID_kegg],...]
     OUTPUT : donnees_metabolites_M_G  (dict)
@@ -215,9 +215,6 @@ try:
             nb_ligne2 = nb_ligne2 + 1
         else :
             print("Erreur de format d'entrée 1")
-    print (len(liste))
-    print (nb_ligne)
-    print(nb_ligne2)
     if len(liste) == nb_ligne :
         liste_correspondance = get_liste_correspondance_id_metabolite_id_kegg(document)
         donnees_metabolites = get_info_deltafgO_mass_from_equilibrator_with_id_kegg(liste_correspondance)
@@ -240,14 +237,14 @@ else:
             donnee_ΔGf_standard_prime = donnees_sec[1][1]
             data["données_métabolites"].append([donnees[0], donnees[1], donnees[2], str(donnee_Masse), str(donnee_ΔGf_standard_prime)])  # ajout à chaque ligne des ID suivis des données de masse et ΔGf°' correspondantes.
             i = i + 1
-        save_data(args.output, data)                           # transfer des données de "data" sur le document .ods, à remplaçercompound = 'phosphoenolpyruvate'
+        save_data(args.output, data)                           # transfer des données de "data" sur le document .ods
 
     elif len(liste) == nb_ligne2 :   
         data.update({"données_métabolites": [["Métabolites","ID (kegg)","Masse (Da)","ΔfG°'(KJ/mol)"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
 
         for ID_metabolite, ID_kegg in dico_correspondance.items(): 
-            donnees_sec = dico_donnees_metabolites[ID_kegg]      # exctraction des données du dictionnaire dico_données_metabolites en fonction de l'ID kegg contenue dans le dictionnaire dico_correspondance, afin d'éviter la réunion en 1 des métabolites aux mêmes ID kegg.
+            donnees_sec = dico_donnees_metabolites[ID_kegg]      # exctraction des données
             donnee_Masse = donnees_sec[0]
             donnee_ΔGf_standard_prime = donnees_sec[1]
             data["données_métabolites"].append([ID_metabolite, ID_kegg, str(donnee_Masse), str(donnee_ΔGf_standard_prime)])  # ajout à chaque ligne des ID suivis des données de masse et ΔGf°' correspondantes.
-        save_data(args.output, data)                           # transfer des données de "data" sur le document .ods, à remplaçercompound = 'phosphoenolpyruvate'
+        save_data(args.output, data)                           # transfer des données de "data" sur le document .ods
