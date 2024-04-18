@@ -147,9 +147,8 @@ def get_liste_correspondance_id_metabolite_id_kegg(document):
     M_CO2;C00011
     M_ETOH;C00469
     ...
-    OUTPUT : dico_correspondance_ID (dict)
-    Format : dico_correspondance_ID = {'ID_métabolite':'ID_kegg', ...}
-    {'M_CO2':'C00011', 'M_ETOH':'C00469', ...}
+    OUTPUT : liste_correspondance_ID 
+    Format : dico_correspondance_ID = [[ID_reac, ID_metabolite, ID_kegg],...]
     '''
     liste_correspondance_ID = []
     for line in document:                                # boucle for afin d'organiser tous les métabolites donnés
@@ -162,12 +161,10 @@ def get_liste_correspondance_id_metabolite_id_kegg(document):
 # ------------------------------------------------------------------------------------------------------------------------------------------
 def get_info_deltafgO_mass_from_equilibrator_with_id_kegg(correspondance):
     ''' Acquisition des données de masse et de ΔfG°' à partir des ID_kegg et des données de l'api equilibrator et organisation des données dans un dictionnaire:
-    INPUT : correspondance   (dict)   dictionnaire contenant l'ID_métabolite suivi de l'ID kegg correspondante
-    Format : correspondance = {'ID_métabolite':'ID_kegg', ...}
-    {'M_CO2':'C00011', 'M_ETOH':'C00469', ...}
-    OUTPUT : dico_donnees_metabolites_M_G  (dict)
-    Format : dico_donnees_metabolites_M_G = {'ID_kegg':[masse, ΔfG°'], ...}
-    {'C00011': [44.00899999999999, -386.0000000000019], 'C00469': [46.068999999999996, 79.02538175410186], ...}
+    INPUT : liste_correspondance
+    Format : liste_correspondance = [[ID_reac, ID_metabolite, ID_kegg],...]
+    OUTPUT : donnees_metabolites_M_G  (dict)
+    Format : dico_donnees_metabolites_M_G = [[ID_kegg[2], [masse, ΔfG_standard_prime]],...]
     '''
     donnees_metabolites_M_G = []
     donnees_masse_ΔfG_standard_prime = []
@@ -187,7 +184,7 @@ def get_info_deltafgO_mass_from_equilibrator_with_id_kegg(correspondance):
         else:
             ΔfG_standard_prime = ΔfG + ΔGf_standard      # calcul de ΔfG°' à partir de ΔfG° et ΔfG
         donnees_masse_ΔfG_standard_prime = [masse, ΔfG_standard_prime]
-        (ID_kegg_sec, donnees) = (ID_kegg[2], donnees_masse_ΔfG_standard_prime)
+        (ID_kegg_sec, donnees) = (ID_kegg[2], donnees_masse_ΔfG_standard_prime) # peut - être inutile
         donnees_metabolites_M_G.append([ID_kegg_sec,donnees])
     return donnees_metabolites_M_G
 # ------------------------------------------------------------------------------------------------------------------------------------------
