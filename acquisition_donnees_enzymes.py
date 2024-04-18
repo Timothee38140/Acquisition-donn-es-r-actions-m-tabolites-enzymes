@@ -18,26 +18,26 @@
 
 ## FORMAT INPUT: 
 # Fichier.txt dont le contenu doit être de la forme suivante sur chaque ligne:
-#nom;ID_enzyme;ID_EC_enzyme;ID_composé,ID_espèce
+#nom;ID_EC_enzyme;ID_composé,ID_espèce
 # Exemple:
-#pyrphossap;pyruvate_kinase;2.7.1.40;phosphoenolpyruvate;Homo sapiens
-#pyrphotau;pyruvate_kinase;2.7.1.40;phosphoenolpyruvate;Bos taurus
+#pyrphossap;2.7.1.40;phosphoenolpyruvate;Homo sapiens
+#pyrphotau;2.7.1.40;phosphoenolpyruvate;Bos taurus
 #...
 
 ## FORMAT OUTPUT:
 # Le fichier rendu sera sous format .ods de la forme suivante (les , représentent ici la délimitation verticale entre les cases du document, les espaces ne sont pas à prendre en compte):
 # Sur la première page (données enzymes Km):
-# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
-# titre réaction ,  nom enzyme   ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Km   , mutant ou none ,  ph      , T°C      ,   autres infos données     
+# ID_réaction    ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
+# titre réaction ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Km   , mutant ou none ,  ph      , T°C      ,   autres infos données     
 # Exemple:
-# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
-# phospho        ,pyruvate_kinase,	2.7.1.40     , phosphoenolpyruvate, Homo sapiens,	1.5	 ,    none	      ,  none	 ,   none	, in the absence of activator + 
+# ID_réaction    , ID_enzyme    , ID_compound        , espèce      ,   Km   ,  mutant (Km)   ,  ph (Km) ,T°C (Km)  ,   autre (Km)
+# phospho        , 2.7.1.40     , phosphoenolpyruvate, Homo sapiens,	1.5	 ,    none	      ,  none	 ,   none	, in the absence of activator + 
 # Sur la deuxième page (données enzymes Kcat):
-# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
-# titre réaction ,  nom enzyme   ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Kcat , mutant ou none ,  ph      , T°C      ,   autres infos données     
+# ID_réaction    ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
+# titre réaction ,  ID_EC_Enzyme , ID_cpmpound        , ID_espèce   ,   Kcat , mutant ou none ,  ph      , T°C      ,   autres infos données     
 # Exemple:
-# ID_réaction    ,  enzyme       ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
-# pyruv          ,pyruvate_kinase,	2.7.1.40	 , phosphoenolpyruvate,	Homo sapiens,	3.2	 ,    none	      ,  6.0	 ,  25 	    , wild type enzyme +   in the absenceof K+ +   in 50 mM Mes-Tris + 
+# ID_réaction    ,  ID_enzyme    , ID_compound        , espèce      ,   Kcat ,  mutant (Kcat) , ph (Kcat),T°C (Kcat),   autre (Kcat)
+# pyruv          ,	2.7.1.40	 , phosphoenolpyruvate,	Homo sapiens,	3.2	 ,    none	      ,  6.0	 ,  25 	    , wild type enzyme +   in the absenceof K+ +   in 50 mM Mes-Tris + 
 # ... 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
@@ -171,14 +171,14 @@ def entree_donnees(entree: str):
     '''Organisation des donnees de Km et Kcat dans un document .ods
     Ce document prend simplement en entrée les noms "Km" ou autre (Kcat) et donne en sortie le document .ods selon la forme montrée dans la partie "FORMAT ET ORGANISATION DES FICHIERS D'ENTRÉE ET DE SORTIE".
     '''
-    data.update({f"données enzymes {entree}": [["enzyme","ID_enzyme","ID_compound","espèce",entree, f"mutant ({entree})",f"ph ({entree})",f"T°C ({entree})",f"autre ({entree})"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
+    data.update({f"données enzymes {entree}": [["ID_réaction","ID_enzyme","ID_compound","espèce",entree, f"mutant ({entree})",f"ph ({entree})",f"T°C ({entree})",f"autre ({entree})"]]})     # création de la légende en tête du fichier ainsi que du nom de page, sous forme de dictionnaire 
     if entree == "Km":        #sélectionne les données de Km si l'input est "Km"
-        valeur_index = 5
+        valeur_index = 4
     else:                     #sinon, sélectionne les données de Kcat
-        valeur_index = 6
+        valeur_index = 5
     
     for valeur in dico_correspondance.values():
-        liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+        liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
         for i in valeur[valeur_index]:
             res = repartis_conditions(i)
             for liste in res:
@@ -186,7 +186,7 @@ def entree_donnees(entree: str):
                 for elem in liste :
                     liste_finale.append(elem)
                 data[f"données enzymes {entree}"].append(liste_finale)
-                liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3],valeur[4]]
+                liste_finale = [valeur[0],valeur[1],valeur[2],valeur[3]]
     save_data(args.output, data)
 
 
@@ -206,14 +206,14 @@ try:
         document = document_read.readlines()
         dico_correspondance = {}
         for line in document :        
-            (nom, ID_enzyme, ID_EC, ID_compound, ID_species ) = line.split(";")      
+            (nom, ID_EC, ID_compound, ID_species ) = line.split(";")      
             ID_species = ID_species.strip("\n") 
             r = brenda.reactions.get_by_id(ID_EC)
             kms = r.KMvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)    
             kcats = r.Kcatvalues.filter_by_organism(ID_species).filter_by_compound(ID_compound)
             liste_conditions_km = get_liste_km_kcat_conditions(kms,ID_compound)
             liste_conditions_kcat = get_liste_km_kcat_conditions(kcats,ID_compound)
-            dico_correspondance[nom] = [nom, ID_enzyme, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
+            dico_correspondance[nom] = [nom, ID_EC, ID_compound, ID_species,liste_conditions_km, liste_conditions_kcat] 
 except:
     print("Erreur du format d'entrée")
 else:

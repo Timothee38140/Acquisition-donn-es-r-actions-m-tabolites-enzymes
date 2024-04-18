@@ -9,7 +9,7 @@ import requests as r
 # CRÉATION DE VARIABLES POUR FACILITER L'EXPLOITATION DES DONNÉES
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-test = pd.read_excel('/home/timotheerabot/Documents/stage_LBBE/tab_reactions_f3.ods')
+test = pd.read_excel('/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions_f3.ods')
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # FONCTIONS
