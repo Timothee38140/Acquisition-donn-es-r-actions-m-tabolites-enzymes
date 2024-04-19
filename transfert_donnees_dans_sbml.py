@@ -74,20 +74,33 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------
 import cobra                               # package permettant entre autre la lecture et modification de fichiers au format .xml
 import pandas as pd                        # package permettant la lecture de fichier .ods entre autres
+import argparse                                            # Permet de rentrer les chemins des documents input et output dans le terminal
 # ------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------
+# CRÉATION DE VARIABLES POUR FACILITER L'EXPLOITATION DES DONNÉES
+# ------------------------------------------------------------------------------------------------------------------------------------------
+
+parser = argparse.ArgumentParser()   
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # SCRIPT PRINCIPAL
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-model = cobra.io.read_sbml_model('/home/timotheerabot/Documents/stage_LBBE/M1.xml')
+parser.add_argument("-m", "--model", help="input model")
+parser.add_argument("-im", "--metab", help="input metabolites")
+parser.add_argument("-ir", "--reac", help="input reactions")
+# parser.add_argument("-ie", "--enz", help="input enzymes")
+args = parser.parse_args()
+
+model = cobra.io.read_sbml_model(args.model)
 
 # Entrée données métabolites (Masse et ΔfG°')
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste = []
 liste_don = []
-docmetabol = pd.read_excel('/home/timotheerabot/Documents/stage_LBBE/Correspondances2.ods')
+docmetabol = pd.read_excel(args.metab)
 for _, row in docmetabol.iterrows():
     liste.append(row)
     print(len(row))
@@ -125,7 +138,7 @@ else :
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste2 = []
-docreac = pd.read_excel('/home/timotheerabot/Documents/stage_LBBE/correspondances3.ods')
+docreac = pd.read_excel(args.reac)
 for _, row in docreac.iterrows():
     liste2.append(row)
 dico2 = {}
@@ -149,7 +162,7 @@ for rxn in model.reactions:        # écriture dans la partie réactions
 
 # liste3 = []
 # liste4 = []
-# dockmcat = pd.ExcelFile('/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods')
+# dockmcat = pd.ExcelFile(args.enz)
 # Page_Km = pd.read_excel(dockmcat, 'données enzymes Km')
 # Page_Kcat = pd.read_excel(dockmcat, 'données enzymes Kcat')
 
@@ -199,7 +212,7 @@ for rxn in model.reactions:        # écriture dans la partie réactions
 
 # Entrée du modèle dans le document sbml
 # ------------------------------------------------------------------------------------------------------------------------------------------
-cobra.io.write_sbml_model(model, "M1.xml")
+cobra.io.write_sbml_model(model, args.model)
 
 
     
