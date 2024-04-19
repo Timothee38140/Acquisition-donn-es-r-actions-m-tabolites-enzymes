@@ -74,37 +74,72 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------
 import cobra                               # package permettant entre autre la lecture et modification de fichiers au format .xml
 import pandas as pd                        # package permettant la lecture de fichier .ods entre autres
+import argparse                                            # Permet de rentrer les chemins des documents input et output dans le terminal
 # ------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------
+# CRÉATION DE VARIABLES POUR FACILITER L'EXPLOITATION DES DONNÉES
+# ------------------------------------------------------------------------------------------------------------------------------------------
+
+parser = argparse.ArgumentParser()   
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # SCRIPT PRINCIPAL
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
-model = cobra.io.read_sbml_model('/home/timotheerabot/Documents/stage_LBBE/ccm_ecoli.xml')
+parser.add_argument("-m", "--model", help="input model")
+parser.add_argument("-im", "--metab", help="input metabolites")
+parser.add_argument("-ir", "--reac", help="input reactions")
+# parser.add_argument("-ie", "--enz", help="input enzymes")
+args = parser.parse_args()
+
+model = cobra.io.read_sbml_model(args.model)
+
+# Entrée données métabolites (Masse et ΔfG°')
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste = []
 liste_don = []
-test = pd.read_excel('metabolites.ods')
-for _, row in test.iterrows():
+docmetabol = pd.read_excel(args.metab)
+for _, row in docmetabol.iterrows():
     liste.append(row)
-i = 0
-for j in liste:
-    liste_don.append([liste[i]["Réaction"],liste[i]["Métabolites"],liste[i]["ID (kegg)"],liste[i]["Masse (Da)"],liste[i]["ΔfG°'(KJ/mol)"]])
-    i = i + 1
-for met in model.reactions:
-    id,rest = str(met).split(":")
-    for donnees in liste_don :
-        if donnees[0] == str(id):
-            met.notes["Metabolites informations"] = ""
-            met.notes["Mass " + "(" + donnees[1] + ")"] = donnees[3]
-            met.notes["ΔfG°_prime(KJ/mol) " + "(" + donnees[1] + ")"] = donnees[4]
+    print(len(row))
+if len(row) == 4 :
+    dico = {}
+    i = 0
+    for j in liste:
+        liste_don = [liste[i]["ID (kegg)"],liste[i]["Masse (Da)"],liste[i]["ΔfG°'(KJ/mol)"]]
+        dico[liste[i]['Métabolites']] = liste_don
+        i = i + 1
 
+
+    for met in model.metabolites:        # écriture dans la partie métabolites
+        for key,value in dico.items() :
+            key = key.strip('M_')
+            if key == str(met):
+                met.notes["Masse"] = value[1]    # notes crée une sous partie avec les données
+                met.notes["ΔfG°_prime(KJ/mol)"] = value[2]
+elif len(row) == 5 :
+    i = 0
+    for j in liste:
+        liste_don.append([liste[i]["Réaction"],liste[i]["Métabolites"],liste[i]["ID (kegg)"],liste[i]["Masse (Da)"],liste[i]["ΔfG°'(KJ/mol)"]])
+        i = i + 1
+    for met in model.reactions:
+        id,rest = str(met).split(":")
+        for donnees in liste_don :
+            if donnees[0] == str(id):
+                met.notes["Metabolites informations"] = ""
+                met.notes["Mass " + "(" + donnees[1] + ")"] = donnees[3]
+                met.notes["ΔfG°_prime(KJ/mol) " + "(" + donnees[1] + ")"] = donnees[4]
+else : 
+    print("Erreur de format d'entrée")
+
+# Entrée données réactions (Keq et ΔG de réaction)
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 liste2 = []
-test2 = pd.read_excel('/home/timotheerabot/Documents/stage_LBBE/reactions.ods')
-for _, row in test2.iterrows():
+docreac = pd.read_excel(args.reac)
+for _, row in docreac.iterrows():
     liste2.append(row)
 dico2 = {}
 i = 0
@@ -114,22 +149,22 @@ for j in liste2:
     i = i + 1
 
 
-for rxn in model.reactions:
+for rxn in model.reactions:        # écriture dans la partie réactions
     (rxn_str,equation) = str(rxn).split(":")
     for key,value in dico2.items() :
         key = key.strip('R_')
         if key == rxn_str:
-            rxn.notes["Reactions informations"] = ""
             rxn.notes["Keq"] = value[1]
-            rxn.notes["ΔrG°_prime(KJ/mol)"] = value[2]
+            rxn.notes["ΔG de réaction (en KJ/mol)"] = value[2]
 
+# Entrée données enzymes (Km, Kcat et leurs conditions)
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 # liste3 = []
 # liste4 = []
-# test3 = pd.ExcelFile('/home/timotheerabot/Documents/stage_LBBE/correspondances_brenda.ods')
-# Page_Km = pd.read_excel(test3, 'données enzymes Km')
-# Page_Kcat = pd.read_excel(test3, 'données enzymes Kcat')
+# dockmcat = pd.ExcelFile(args.enz)
+# Page_Km = pd.read_excel(dockmcat, 'données enzymes Km')
+# Page_Kcat = pd.read_excel(dockmcat, 'données enzymes Kcat')
 
 # for _, row in Page_Km.iterrows():
 #     liste3.append(row)
@@ -150,7 +185,7 @@ for rxn in model.reactions:
 #     i = i + 1
 
 
-# for ez in model.reactions:
+# for ez in model.reactions:        # écriture dans la partie réactions
 #     (ez_str,equation) = str(ez).split(":")
 #     i = 1
 #     for key,value in dico3.items() :
@@ -174,11 +209,10 @@ for rxn in model.reactions:
 #             ez.notes["T°C (Kcat)"] = value[7]
 #             ez.notes["autre (Kcat)"] = value[8]
 #             i = i + 1
-    
+
+# Entrée du modèle dans le document sbml
 # ------------------------------------------------------------------------------------------------------------------------------------------
-
-
-cobra.io.write_sbml_model(model, "ccm_ecoli.xml")
+cobra.io.write_sbml_model(model, args.model)
 
 
     

@@ -1,7 +1,7 @@
 ## OBJECTIF: 
 # L'objectif de ce programme est la récupération des données de  Km et Kcat (et les conditions d'expériences dans lesquelles ces données ont été obtenues) d'enzymes provenant d'un fichier contenant le nom d'une espèces ainsi que d'un composé associé à une enzyme.
 # Les données seront récupérées avec le package brendapyraser récupérant les données sur la base de données BRENDA.
-# Le package a été conçu par: Semidán,R.E.,2020, https://pypi.org/project/brendapyrser/
+# Le package a été conçu par: Semidán R.E.,2020, https://pypi.org/project/brendapyrser/
 # Document .txt de données à télécharger pour utiliser le package: https://www.brenda-enzymes.org/download.php
 # Copyright BRENDA : Copyrighted by Dietmar Schomburg, Techn. University Braunschweig, GERMANY. Distributed under the License as stated at http:/www.brenda-enzymes.org
 
