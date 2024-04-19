@@ -3,9 +3,9 @@
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
-# python acquisition_donnees_metabolites.py -i "chemin document" -o "chemin document de sortie"
+# python acquisition_donnees_metabolites.py -i "chemin document Rkegg" -om "chemin document de sortie pour métabolites" -om "chemin document de sortie pour réactions"
 # exemple:
-# python transfert_donnees_ods_txt.py -i /home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions_f3.ods -o /home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions.txt
+# python transfert_Rkegg_ods_txt.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions_f3.ods" -om "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/met.txt" -or "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/rea.txt"
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------

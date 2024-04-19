@@ -7,7 +7,7 @@
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
-# python acquisition_donnees_enzymes.py -i "chemin document métabolites" -o "chemin document de sortie"
+# python acquisition_donnees_enzymes.py -i "chemin document enzymes" -o "chemin document de sortie"
 # exemple:
 # python acquisition_donnees_enzymes.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/correspondances_brenda.txt" -o "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/correspondances_brenda.ods"
 # ------------------------------------------------------------------------------------------------------------------------------------------

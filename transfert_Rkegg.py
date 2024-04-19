@@ -2,6 +2,13 @@
 # Transformer les données de R kegg en données de C kegg 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
+# LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
+# python transfert_Rkegg.py -i "chemin document Rkegg" -om "chemin document de sortie pour métabolites" -om "chemin document de sortie pour réactions"
+# exemple:
+# python transfert_Rkegg.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions.txt" -om "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/met.txt" -or "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/rea.txt"
+# ------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------
 # FORMAT ET ORGANISATION DES FICHIERS D'ENTRÉE ET DE SORTIE
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -21,12 +28,6 @@
 # Document .txt avec les réactions de la forme:
 #ack;C00002 + C00033 = C00008 + C00227
 
-# ------------------------------------------------------------------------------------------------------------------------------------------
-# LIGNE DE COMMANDE À ÉCRIRE DANS LE TERMINAL POUR LANCER LE SCRIPT:
-# python acquisition_donnees_metabolites.py -i "chemin document Rkegg" -om "chemin document de sortie pour métabolites" -om "chemin document de sortie pour réactions"
-# exemple:
-# python transfert_Rkegg.py -i "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/tab_reactions.txt" -om "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/met.txt" -or "/home/timotheerabot/Documents/acquisition_donnees/Acquisition-donn-es-r-actions-m-tabolites-enzymes/rea.txt"
-# ------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # IMPORTATION DES MODULES
